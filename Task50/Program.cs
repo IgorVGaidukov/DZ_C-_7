@@ -19,7 +19,7 @@ int[,] GetArrayMatrix(int rows, int columns, int minValue, int maxValue)
     {
         for (int j = 0; j < columns; j++)
         {
-            result[i, j] = new Random().Next(minValue, maxValue+1);
+            result[i, j] = new Random().Next(minValue, maxValue + 1);
         }
     }
     return result;
@@ -46,11 +46,15 @@ var value = int.Parse(Console.ReadLine());
 
 Console.Write("Позиции элемента в массиве: ");
 
+bool noItem = true;
+
 for (int i = 0; i < rows; i++)
-{
     for (int j = 0; j < columns; j++)
-    {
         if (value == array[i, j])
-            Console.Write($"({i},{j}), "); ;
-    }
-}
+        {
+            Console.Write($"({i},{j}), ");
+            noItem = false;
+        }
+
+if (noItem)
+    Console.Write($"Нет элемента '{value}' в массиве");
