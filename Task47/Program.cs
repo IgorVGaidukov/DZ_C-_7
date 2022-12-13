@@ -5,18 +5,18 @@
 // 8 7,8 -7,1 9
 
 Console.Write("Введите количество строк массива: ");
-var rows = int.Parse(Console.ReadLine());
+var m = int.Parse(Console.ReadLine());
 
 Console.Write("Введите количество столбцов массива: ");
-int columns = int.Parse(Console.ReadLine());
+var n = int.Parse(Console.ReadLine());
 
-double[,] GetArrayMatrix(int rows, int columns, int minValue, int maxValue)
+double[,] GetArrayMatrix(int m, int n, int minValue, int maxValue)
 {
-    double[,] result = new double[rows, columns];
+    double[,] result = new double[m, n];
     var rnd = new Random();
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < m; i++)
     {
-        for (int j = 0; j < columns; j++)
+        for (int j = 0; j < n; j++)
         {
             result[i, j] = rnd.Next(minValue,maxValue) + rnd.NextDouble();
         }
@@ -37,6 +37,6 @@ void PrintArray(double[,] inArray)
     }
 }
 
-double[,] array = GetArrayMatrix(rows, columns, 0, 9);
+double[,] array = GetArrayMatrix(m, n, 0, 10);
 
 PrintArray(array);
